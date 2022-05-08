@@ -1,3 +1,4 @@
+//import React from 'react';
 export default function Challenge() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function Challenge() {
       TODO: Add event handlers to these buttons that use the Java API to perform their relative actions.
       */}
       <button>Get Low-Stock Items</button>
+      //https://www.youtube.com/watch?v=PnTh4DmJMa8
       <button>Determine Re-Order Cost</button>
     </>
   );
