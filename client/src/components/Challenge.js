@@ -1,5 +1,33 @@
-//import React from 'react';
-export default function Challenge() {
+import React from "react";
+import { Component } from "react";
+
+
+class Challenge extends Component {
+    constructor(props) {
+    super(props);
+    this.state = {
+    cost: 0.0,
+    candy: []
+    }
+ }
+
+
+getLowStock = () => {
+    //Fetch request
+    fetch("http://localhost:4567/low-stock", {
+    method:"GET",
+    headers: {"content-type": "application/json"}
+    })
+    .then(response => response.json())
+        this.setState({
+                items: []
+              });
+}
+
+
+
+//MAIN Func
+render() {
   return (
     <>
       <table>
@@ -24,10 +52,14 @@ export default function Challenge() {
       <div>Total Cost: </div>
       {/* 
       TODO: Add event handlers to these buttons that use the Java API to perform their relative actions.
-      */}
-      <button>Get Low-Stock Items</button>
-      //https://www.youtube.com/watch?v=PnTh4DmJMa8
+      */
+      }
+      <button onClick={getLowStock}>Get Low-Stock Items</button>
       <button>Determine Re-Order Cost</button>
     </>
   );
 }
+}
+
+
+export default Challenge;

@@ -34,7 +34,6 @@ public class Main {
                         response.header("Access-Control-Allow-Methods",
                                 "GET, POST");
 
-
                     return "OK";
                 });
 
@@ -62,7 +61,7 @@ public class Main {
 
 
                 //importing the inventory workbook
-                FileInputStream file = new FileInputStream(new File("../resources/Inventory.xlsx"));
+                FileInputStream file = new FileInputStream(new File("resources/Inventory.xlsx"));
                 //Creating the workbook instance with reference of the inventory.xlsx
                 XSSFWorkbook workbook = new XSSFWorkbook(file);
                 // Getting the first sheet from the workbook
@@ -100,7 +99,7 @@ public class Main {
             //instantiate json object/list or string
             for(int i = 0; i < candyInventory.size(); i++){            //use list
                 if((double)(candyInventory.get(i).inStock/candyInventory.get(i).capacity) < 0.25){
-                    System.out.println(candyInventory.get(i).name); //add to json object or string
+                   // System.out.println(candyInventory.get(i).name); //add to json object or string //Debugging
                     output = output + "{\"" + candyInventory.get(i).name + "\"},";
                 }
             }
