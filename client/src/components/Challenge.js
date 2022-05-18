@@ -4,25 +4,23 @@ import { Component } from "react";
 
 class Challenge extends Component {
     constructor(props) {
-    super(props);
-    this.state = {
-    cost: 0.0,
-    candy: []
-    }
+        super();
+        this.state = {
+            cost: 0.0,
+            candy: []
+        }
  }
 
 
 getLowStock = () => {
     //Fetch request
-    fetch("http://localhost:4567/low-stock", {
-    method:"GET",
-    headers: {"content-type": "application/json"}
-    })
-    .then(response => response.json())
-        this.setState({
-                items: []
-              });
-}
+    fetch('http://localhost:4567/low-stock')
+            .then(response => response.json())
+            .then(data => {
+                this.state.candyInventory = data;
+                this.setState({})
+            })
+        }
 
 
 
@@ -54,7 +52,7 @@ render() {
       TODO: Add event handlers to these buttons that use the Java API to perform their relative actions.
       */
       }
-      <button onClick={getLowStock}>Get Low-Stock Items</button>
+      <button id = "lowStock" onClick={this.getLowStock}>Get Low-Stock Items</button>
       <button>Determine Re-Order Cost</button>
     </>
   );
